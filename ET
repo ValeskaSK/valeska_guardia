@@ -1,0 +1,60 @@
+import random
+
+trabajadores = ["Juan Perez","Maria Garcia","Carlos Lopez","Ana Martinez","Pedro Rodriguez","Laura Hernandez","Miguel Sanchez","Isabel Gomez","Francisco Diaz","Elena Fernandez"]
+info_trabajadores={}
+
+def asignar_sueldo_aleatoreo():
+
+    for trabajador in trabajadores:
+        sueldo_aleatoreo = random.randint(300000,2500000)
+        info_trabajadores[trabajador]= {"sueldo": sueldo_aleatoreo}   
+    print('Sueldo aleatoreo generado satisfactoriamente')
+    for trabajador, info in info_trabajadores.items():
+        print(f'{trabajador.ljust(20)}:{info['sueldo']}')
+
+def  clasificar_sueldo():
+    pass
+
+def estadisticas():
+    pass
+
+def reporte_de_sueldos():
+   pass
+
+
+def salir():
+    print('\nFinalizando programa...\nDesarrollado por Valeska Guardia Neuman\nRUT 10.971.541-7')
+
+def mostrar_menu():
+    print("\n--- Menu Principal ---\n")
+    print("1.- Asignar sueldos aleatorios.")
+    print("2.- Clasificar sueldos.")
+    print("3.- Ver estadisticas.")
+    print("4.- Reporte de sueldos.")
+    print("5.- Salir del programa.")
+
+def main():
+    while True:
+        mostrar_menu()
+        try:
+            opcion = int(input("Seleccione una opcion:\t").strip())
+        except ValueError:
+            print("Debe ingresar un numero valido.")
+            continue
+        match opcion:
+            case 1:
+                asignar_sueldo_aleatoreo()
+            case 2:
+                clasificar_sueldo()
+            case 3:
+                estadisticas()
+            case 4:
+                reporte_de_sueldos()
+            case 5:
+                salir()
+                break
+            case _:
+                print("Opcion no valida, por favor intente nuevamente.")
+
+if __name__ == "__main__":
+    main() 
